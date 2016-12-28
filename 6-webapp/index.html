@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<body>
+<input id="p1" type="text" /> 
+<input id="p2" type="text" /> 
+<p id="table">...</p>
+<button type="button" onclick="genTable()">Get response</button>
+
+<script>
+function genTable() {
+  var in1 = document.getElementById("p1").value;
+  var in2 = document.getElementById("p2").value;
+  var i = 1;
+  document.getElementById("table").innerHTML = '';
+  for(i = 1;i <= in2;i++) {
+    document.getElementById("table").innerHTML += in1 + ' x ' + i + ' = ' + in1*i + '<br>';
+  }
+}
+</script>
+
+</body>
+</html>
+
