@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<body>
+  Local Time <p id="ltime">...</p>
+  Server Time<p id="stime">...</p>
+<button type="button" onclick="localUpdate()">Local Time</button>
+<button type="button" onclick="callServer()">Server Time</button>
+
+<script>
+function localUpdate() {
+  d = new Date();
+  document.getElementById("ltime").innerHTML = d.toString();
+}
+function callServer() {
+  window.open("http://localhost:8080/date","_self")
+}
+</script>
+
+</body>
+</html>
+
