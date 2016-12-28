@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <meta charset="utf-8">
+  <body>
+    <input id="queryparam" type="text" /> 
+    <p id="demo">...</p>
+    <button type="button" onclick="callServer()">Get response</button>
+
+    <script>
+function callServer() {
+  var inputTxt = document.getElementById("queryparam").value;
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (xhttp.readyState == 4 && xhttp.status == 200) {
+      document.getElementById("demo").innerHTML = xhttp.responseText;
+      console.log('got data');
+    }
+    else {
+      console.log('error occured');
+      document.getElementById("demo").innerHTML = 'Error: ' + 'status ' +  xhttp.status + ' ' +  xhttp.readyState;
+    }
+
+  };
+  xhttp.open("GET","http://localhost:8080/home?name="+inputTxt, true);
+  xhttp.send();
+  console.log('called server');
+}
+    </script>
+
+  </body>
+</html>
+
